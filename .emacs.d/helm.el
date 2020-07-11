@@ -17,4 +17,4 @@
 (when (package-installed 'projectile)
   (ensure-package 'helm-projectile)
   (global-set-key (kbd "C-c C-f") 'helm-projectile)
-  (global-set-key (kbd "C-c C-p") 'helm-projectile-switch-project))
+  (global-set-key (kbd "C-c p") 'helm-projectile-switch-project))
