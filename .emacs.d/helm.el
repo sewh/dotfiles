@@ -16,5 +16,5 @@
 ;; configure helm with projectile if it's installed
 (when (package-installed 'projectile)
   (ensure-package 'helm-projectile)
-  (global-set-key (kbd "C-c C-f") 'helm-projectile-find-file)
+  (global-set-key (kbd "C-c C-f") 'helm-projectile)
   (global-set-key (kbd "C-c C-p") 'helm-projectile-switch-project))

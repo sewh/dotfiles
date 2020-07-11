@@ -1,4 +1,5 @@
 (set-default-font "Go Mono-12" nil 't)
+(add-to-list 'default-frame-alist '(font . "Go Mono-12"))
 
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
