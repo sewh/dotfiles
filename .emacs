@@ -1,6 +1,7 @@
 (setq init-files '("packages.el"     ;; Package config and functions
 		   "general.el"      ;; General and misc functions
 		   "window.el"       ;; Appearance changes
+                   "org.el"          ;; Org Mode changes
 		   "text.el"         ;; General text editing changes
 		   "magit.el"        ;; Magit config
                    "projectile.el"   ;; Projectile config
@@ -22,7 +23,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (slime helm-projectile projectile helm-ag helm magit "magit" "magit"))))
+    (paredit mixed-pitch mixed-width org-bullets olivetti slime helm-projectile projectile helm-ag helm magit "magit" "magit"))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
