@@ -21,12 +21,12 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-enabled-themes '(tsdh-light))
  '(package-selected-packages
-   (quote
-    (paredit mixed-pitch mixed-width org-bullets olivetti slime helm-projectile projectile helm-ag helm magit "magit" "magit"))))
+   '(paredit mixed-pitch mixed-width org-bullets olivetti slime helm-projectile projectile helm-ag helm magit "magit" "magit")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:inherit nil :extend nil :stipple nil :background "#fafafa" :foreground "#383a42" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight light :height 120 :width normal :foundry "pyrs" :family "Roboto Mono")))))
