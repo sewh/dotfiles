@@ -5,8 +5,10 @@
 		   "text.el"         ;; General text editing changes
 		   "magit.el"        ;; Magit config
                    "projectile.el"   ;; Projectile config
-                   "helm.el"         ;; Helm changes and overrides
+                   ;;                   "helm.el"         ;; Helm changes and overrides
+                   "ivy.el"          ;; Ivy changes and overrides
                    "lisp.el"         ;; Common Lisp config
+                   "meson.el"        ;; Meson build config
 		   ))
 
 (defun load-init-files ()
@@ -21,12 +23,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes '(tsdh-light))
+ '(custom-enabled-themes '(tron-legacy))
+ '(custom-safe-themes
+   '("d0aa1464d7e55d18ca1e0381627fac40229b9a24bca2a3c1db8446482ce8185e" "24714e2cb4a9d6ec1335de295966906474fdb668429549416ed8636196cb1441" default))
+ '(ivy-mode t)
  '(package-selected-packages
-   '(paredit mixed-pitch mixed-width org-bullets olivetti slime helm-projectile projectile helm-ag helm magit "magit" "magit")))
+   '(tron-legacy-theme counsel council swiper ivy dracula-theme meson-mode paredit mixed-pitch mixed-width org-bullets olivetti slime projectile helm-ag magit "magit" "magit")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:inherit nil :extend nil :stipple nil :background "#fafafa" :foreground "#383a42" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight light :height 120 :width normal :foundry "pyrs" :family "Roboto Mono")))))
+ '(default ((t (:font "Roboto Mono-12"))))
+ '(variable-pitch ((t (:font "Roboto-12")))))
