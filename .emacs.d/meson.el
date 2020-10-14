@@ -1,0 +1,1 @@
+(ensure-package 'meson-mode)
