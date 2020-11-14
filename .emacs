@@ -1,19 +1,14 @@
-(setq init-files '("packages.el"     ;; Package config and functions
-		   "general.el"      ;; General and misc functions
-		   "window.el"       ;; Appearance changes
-                   "org.el"          ;; Org Mode changes
-		   "text.el"         ;; General text editing changes
-		   "magit.el"        ;; Magit config
-                   "projectile.el"   ;; Projectile config
-                   ;; "evil.el"         ;; Evil mode
-                   "ivy.el"          ;; Ivy changes and overrides
-                   "lisp.el"         ;; Common Lisp config
-                   "meson.el"        ;; Meson build config
-		   ))
-
-(defun load-init-files ()
-  (interactive)
-  (dolist (file init-files)
-    (load (concat user-emacs-directory file))))
-
-(load-init-files)
+(load (concat user-emacs-directory "custom-start.el"))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(meson-mode paredit slime counsel swiper ivy projectile magit org-bullets olivetti mixed-pitch)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
