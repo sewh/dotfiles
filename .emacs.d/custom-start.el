@@ -9,6 +9,7 @@
                    "lisp.el"         ;; Common Lisp config
                    "meson.el"        ;; Meson build config
                    "go.el"           ;; Golang config
+                   "markdown.el"     ;; Markdown config
 		   ))
 
 (defun load-init-files ()

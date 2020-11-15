@@ -1,9 +1,8 @@
 (ensure-package 'go-mode)
 
 (defun sewh--golang-mode-settings ()
-  (setq
-   tab-width 2
-   default-tab-width 2
-   indent-tabs-mode t))
+  (interactive)
+  (setq indent-tabs-mode t)
+  (setq tab-width 2))
 
-(add-hook 'golang-mode-hook 'sewh--golang-mode-settings)
+(add-hook 'go-mode-hook 'sewh--golang-mode-settings)
