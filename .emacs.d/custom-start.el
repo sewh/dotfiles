@@ -1,5 +1,6 @@
 (setq init-files '("packages.el"     ;; Package config and functions
 		   "general.el"      ;; General and misc functions
+                   "mac.el"          ;; macos-specific changes
 		   "window.el"       ;; Appearance changes
                    "org.el"          ;; Org Mode changes
 		   "text.el"         ;; General text editing changes
