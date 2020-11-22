@@ -13,6 +13,11 @@
                    "markdown.el"     ;; Markdown config
 		   ))
 
+(let ((file (concat user-emacs-directory "device-specific.el")))
+  (when (file-exists-p file)
+    (add-to-list 'init-files file)))
+
+
 (defun load-init-files ()
   (interactive)
   (dolist (file init-files)
