@@ -2,6 +2,7 @@
 		   "general.el"      ;; General and misc functions
                    "mac.el"          ;; macos-specific changes
 		   "window.el"       ;; Appearance changes
+                   "dired.el"        ;; Dired changes
                    "org.el"          ;; Org Mode changes
 		   "text.el"         ;; General text editing changes
 		   "magit.el"        ;; Magit config
