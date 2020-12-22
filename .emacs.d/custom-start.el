@@ -16,7 +16,7 @@
 
 (let ((file (concat user-emacs-directory "device-specific.el")))
   (when (file-exists-p file)
-    (add-to-list 'init-files file)))
+    (add-to-list 'init-files file 't)))
 
 
 (defun load-init-files ()
