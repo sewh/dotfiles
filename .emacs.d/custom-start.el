@@ -13,6 +13,7 @@
                    "meson.el"        ;; Meson build config
                    "go.el"           ;; Golang config
                    "markdown.el"     ;; Markdown config
+                   "terminal.el"     ;; Terminal mode config
 		   ))
 
 (let ((file (concat user-emacs-directory "device-specific.el")))
