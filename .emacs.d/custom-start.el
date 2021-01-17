@@ -2,6 +2,7 @@
 		   "general.el"      ;; General and misc functions
                    "mac.el"          ;; macos-specific changes
 		   "window.el"       ;; Appearance changes
+                   "tabs.el"         ;; Tab bar changes
                    "dired.el"        ;; Dired changes
                    "org.el"          ;; Org Mode changes
 		   "text.el"         ;; General text editing changes
@@ -15,12 +16,12 @@
                    "go.el"           ;; Golang config
                    "rust.el"         ;; Rust config
                    "markdown.el"     ;; Markdown config
+                   "terminal.el"     ;; Terminal mode config
 		   ))
 
 (let ((file (concat user-emacs-directory "device-specific.el")))
   (when (file-exists-p file)
-    (add-to-list 'init-files file)))
-
+    (add-to-list 'init-files file 't)))
 
 (defun load-init-files ()
   (interactive)
