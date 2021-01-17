@@ -6,11 +6,14 @@
                    "org.el"          ;; Org Mode changes
 		   "text.el"         ;; General text editing changes
 		   "magit.el"        ;; Magit config
+                   "flycheck.el"     ;; Flycheck changes
+                   "company.el"      ;; Company completion changes
                    "projectile.el"   ;; Projectile config
                    "ivy.el"          ;; Ivy changes and overrides
                    "lisp.el"         ;; Common Lisp config
                    "meson.el"        ;; Meson build config
                    "go.el"           ;; Golang config
+                   "rust.el"         ;; Rust config
                    "markdown.el"     ;; Markdown config
 		   ))
 
