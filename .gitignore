@@ -1,7 +1,6 @@
-.emacs.d/device-specific.el
-.emacs.d/backups
-.emacs.d/installed-packages.el
-.emacs.d/auto-save-list
-.emacs.d/elpa
+emacs.d/device-specific.el
+emacs.d/backups
+emacs.d/auto-save-list
+emacs.d/elpa
 .emacs
 *~
