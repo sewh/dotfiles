@@ -4,6 +4,4 @@
       `((".*" . ,backup-directory)))
 
 (setq-default indent-tabs-mode nil)
-
-(electric-pair-mode 't)
 (show-paren-mode 't)

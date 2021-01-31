@@ -1,2 +1,0 @@
-(ensure-package 'flycheck)
-
