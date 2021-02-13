@@ -1,2 +1,5 @@
 (windmove-default-keybindings)
 (global-set-key (kbd "C-q") 'set-mark-command)
+(global-set-key (kbd "C-c 3") (lambda ()
+                                (interactive)
+                                (insert "#")))
