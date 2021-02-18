@@ -3,6 +3,7 @@
 		   "keybindings.el"
 		   "text.el"
                    "macos.el"
+                   "windows-nt.el"
                    "tabmode.el"
                    "magit.el"
                    "ivy.el"
