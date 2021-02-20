@@ -11,3 +11,6 @@
 (scroll-bar-mode -1)
 (unless (string= system-type "darwin") (menu-bar-mode -1))
 (setq ring-bell-function 'ignore)
+
+(setq scroll-step 1)
+(setq scroll-conservatively 10000)
