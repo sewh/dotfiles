@@ -15,7 +15,8 @@
                    "projectile.el"
                    "yaml.el"
                    "flycheck.el"
-                   "docker.el"))
+                   "docker.el"
+                   "rust.el"))
 
 (let ((file (concat user-emacs-directory "device-specific.el")))
   (when (file-exists-p file)
