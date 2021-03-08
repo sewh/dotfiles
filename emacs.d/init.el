@@ -1,5 +1,6 @@
 (setq init-files '("package.el"
 		   "ui.el"
+                   "sidebar.el"
 		   "keybindings.el"
 		   "text.el"
                    "macos.el"
