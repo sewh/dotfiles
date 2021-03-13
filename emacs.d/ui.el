@@ -7,6 +7,12 @@
   (setq doom-modeline-icon nil)
   (doom-modeline-mode 1))
 
+(use-package origami
+  :ensure t
+  :bind (("C-]" . origami-recursively-toggle-node))
+  :config
+  (global-origami-mode))
+
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (unless (string= system-type "darwin") (menu-bar-mode -1))
