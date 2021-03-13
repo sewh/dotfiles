@@ -18,6 +18,7 @@
                    "yaml.el"
                    "flycheck.el"
                    "docker.el"
+                   "python.el"
                    "rust.el"
                    "go.el"))
 
