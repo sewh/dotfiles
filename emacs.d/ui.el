@@ -20,3 +20,5 @@
 
 (setq scroll-step 1)
 (setq scroll-conservatively 10000)
+
+(global-display-line-numbers-mode)
