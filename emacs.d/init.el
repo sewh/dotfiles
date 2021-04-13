@@ -9,6 +9,8 @@
                    "tabmode.el"
                    "magit.el"
                    "ivy.el"
+                   "tree-sitter.el"
+                   "completion.el"
                    "org.el"
                    "smartparens.el"
                    "markdown.el"
@@ -20,7 +22,8 @@
                    "docker.el"
                    "python.el"
                    "rust.el"
-                   "go.el"))
+                   "go.el"
+                   "dotnet.el"))
 
 (let ((file (concat user-emacs-directory "device-specific.el")))
   (when (file-exists-p file)
