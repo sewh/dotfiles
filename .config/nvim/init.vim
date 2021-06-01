@@ -21,6 +21,8 @@ map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
 map <leader>t<leader> :tabnext<cr>
+tnoremap <Esc> <C-\><C-n>
+tnoremap jj <C-\><C-n>
 
 " merge system clipboard
 set clipboard=unnamedplus
