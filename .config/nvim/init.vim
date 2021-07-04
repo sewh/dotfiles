@@ -9,6 +9,9 @@ syntax enable
 " go filetype changes
 au FileType go setlocal noexpandtab
 
+" yaml filetype changes
+au FileType yaml,yml setlocal shiftwidth=2 tabstop=2
+
 " keybindings
 map! jj <Esc>
 map! ppp <Esc>ppa
