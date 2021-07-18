@@ -9,6 +9,9 @@ syntax enable
 " go filetype changes
 au FileType go setlocal noexpandtab
 
+" yaml filetype changes
+au FileType yaml,yml setlocal shiftwidth=2 tabstop=2
+
 " keybindings
 map! jj <Esc>
 map! ppp <Esc>ppa
@@ -21,6 +24,8 @@ map <leader>to :tabonly<cr>
 map <leader>tc :tabclose<cr>
 map <leader>tm :tabmove 
 map <leader>t<leader> :tabnext<cr>
+tnoremap <Esc> <C-\><C-n>
+tnoremap jj <C-\><C-n>
 
 " merge system clipboard
 set clipboard=unnamedplus
