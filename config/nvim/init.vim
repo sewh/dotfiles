@@ -1,3 +1,10 @@
+call plug#begin(stdpath('config') . '/plugged')
+Plug 'preservim/nerdtree'
+Plug 'preservim/tagbar'
+Plug 'morhetz/gruvbox'
+Plug 'cormacrelf/vim-colors-github'
+call plug#end()
+
 " leader change
 let mapleader = ","
 
@@ -14,7 +21,7 @@ au FileType yaml,yml setlocal shiftwidth=2 tabstop=2
 
 " keybindings
 map! jj <Esc>
-map! ppp <Esc>ppa
+map! ppp <Esc>pa
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
@@ -26,6 +33,8 @@ map <leader>tm :tabmove
 map <leader>t<leader> :tabnext<cr>
 tnoremap <Esc> <C-\><C-n>
 tnoremap jj <C-\><C-n>
+map <C-n> :NERDTreeToggle<CR>
+map <C-b> :TagbarToggle<CR>
 
 " merge system clipboard
 set clipboard=unnamedplus
@@ -59,4 +68,6 @@ set nowb
 set noswapfile
 
 " appearance
-colorscheme murphy
+colorscheme github
+set background=light
+
