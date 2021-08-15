@@ -3,6 +3,7 @@ Plug 'preservim/nerdtree'
 Plug 'preservim/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'cormacrelf/vim-colors-github'
+Plug 'fatih/vim-go'
 call plug#end()
 
 " leader change
