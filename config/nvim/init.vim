@@ -4,6 +4,7 @@ Plug 'preservim/tagbar'
 Plug 'morhetz/gruvbox'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'fatih/vim-go'
+Plug 'elixir-editors/vim-elixir'
 call plug#end()
 
 " leader change
@@ -13,6 +14,9 @@ let mapleader = ","
 filetype plugin on
 filetype indent on
 syntax enable
+
+" allow mouse
+set mouse=a
 
 " go filetype changes
 au FileType go setlocal noexpandtab
