@@ -5,6 +5,7 @@ Plug 'morhetz/gruvbox'
 Plug 'cormacrelf/vim-colors-github'
 Plug 'fatih/vim-go'
 Plug 'elixir-editors/vim-elixir'
+Plug 'Vimjas/vim-python-pep8-indent'
 call plug#end()
 
 " leader change
