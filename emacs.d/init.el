@@ -12,6 +12,7 @@
                    "tree-sitter.el"
                    "completion.el"
                    "org.el"
+                   "org-shell.el"
                    "smartparens.el"
                    "markdown.el"
                    "flyspell.el"
