@@ -22,7 +22,7 @@
   :global t
   :keymap
   (list
-   ((kbd "C-c RET") . (lambda () (org-shell--new-code-block))))
+   (cons (kbd "C-c RET") #'org-shell--new-code-block))
 
   (setq org-confirm-babel-evaluate nil))
 
