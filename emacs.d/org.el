@@ -11,8 +11,6 @@
 
 (use-package org-roam
       :ensure t
-      :hook
-      (after-init . org-roam-mode)
       :custom
       (org-roam-directory (concat (getenv "HOME") "/org"))
       :bind (:map org-roam-mode-map
@@ -22,3 +20,4 @@
               :map org-mode-map
               (("C-c n i" . org-roam-insert))
               (("C-c n I" . org-roam-insert-immediate))))
+(setq org-roam-v2-ack t)
