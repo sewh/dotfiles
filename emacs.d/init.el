@@ -23,7 +23,8 @@
                    "docker.el"
                    "python.el"
                    "rust.el"
-                   "go.el"))
+                   "go.el"
+                   "vterm.el"))
 
 (let ((file (concat user-emacs-directory "device-specific.el")))
   (when (file-exists-p file)
