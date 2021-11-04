@@ -1,12 +1,6 @@
 (use-package doom-themes
   :ensure t)
 
-(use-package doom-modeline
-  :ensure t
-  :config
-  (setq doom-modeline-icon nil)
-  (doom-modeline-mode 1))
-
 (use-package origami
   :ensure t
   :bind (("C-]" . origami-recursively-toggle-node))
