@@ -24,7 +24,8 @@
                    "python.el"
                    "rust.el"
                    "go.el"
-                   "vterm.el"))
+                   "vterm.el"
+                   "nano.el"))
 
 (let ((file (concat user-emacs-directory "device-specific.el")))
   (when (file-exists-p file)
