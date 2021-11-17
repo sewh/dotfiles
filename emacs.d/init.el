@@ -1,4 +1,5 @@
 (setq init-files '("package.el"
+                   "nano.el"
                    "ui.el"
                    "sidebar.el"
                    "keybindings.el"
@@ -24,8 +25,7 @@
                    "python.el"
                    "rust.el"
                    "go.el"
-                   "vterm.el"
-                   "nano.el"))
+                   "vterm.el"))
 
 (let ((file (concat user-emacs-directory "device-specific.el")))
   (when (file-exists-p file)
