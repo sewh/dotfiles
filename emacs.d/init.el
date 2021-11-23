@@ -1,5 +1,5 @@
 (setq init-files '("package.el"
-                   "nano.el"
+;;                   "nano.el"
                    "ui.el"
                    "sidebar.el"
                    "keybindings.el"
