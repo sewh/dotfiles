@@ -1,3 +1,5 @@
+-- requires neovim > 0.7 and packer
+
 -- aliases
 local set = vim.opt
 local setlocal = vim.opt_local
