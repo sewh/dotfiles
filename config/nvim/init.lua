@@ -1,5 +1,3 @@
--- requires neovim > 0.7 and packer
-
 -- aliases
 local set = vim.opt
 local setlocal = vim.opt_local
@@ -42,7 +40,7 @@ keymap("i", 'ppp', '<Esc>pa', {})
 set.mouse = 'a'
 
 -- appearance changes
-set.background = 'light'
+set.background = 'dark'
 set.number = true
 
 -- autogroups
@@ -56,6 +54,23 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "sh",
+  callback = function(args)
+    setlocal.tabstop = 2
+    setlocal.softtabstop = 2
+    setlocal.shiftwidth = 2
+  end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "c",
+  callback = function(args)
+    setlocal.tabstop = 2
+    setlocal.softtabstop = 2
+    setlocal.shiftwidth = 2
+  end,
+})
 -- package-specific config
 
 -- lsp mode
