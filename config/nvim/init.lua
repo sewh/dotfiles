@@ -33,6 +33,7 @@ set.hlsearch = true
 set.clipboard = 'unnamedplus'
 
 -- custom key bindings
+vim.g.mapleader = ","
 keymap("i", 'jj', '<Esc>', {})
 keymap("i", 'ppp', '<Esc>pa', {})
 
