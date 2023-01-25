@@ -10,6 +10,8 @@ require('packer').startup(function()
   use 'editorconfig/editorconfig-vim'
   use 'neovim/nvim-lspconfig'
   use 'hashivim/vim-terraform'
+  use 'ms-jpq/coq_nvim'
+  use 'ms-jpq/coq.artifacts'
 end)
 
 -- text changes
@@ -76,8 +78,11 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- lsp mode
 local lspconfig = require 'lspconfig'
+local coq = require "coq"
 
 lspconfig.pyright.setup({})
 lspconfig.gopls.setup({})
-
-
+lspconfig.rust_analyzer.setup(coq.lsp_ensure_capabilities({
+    cmd = {"rustup", "run", "stable", "rust-analyzer"} ,
+}))
+vim.cmd('COQnow -s')
