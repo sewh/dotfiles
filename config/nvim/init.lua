@@ -35,6 +35,11 @@ require('packer').startup(function()
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+  }
+  use { "ellisonleao/gruvbox.nvim" }
 end)
 
 -- text changes
@@ -102,6 +107,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- neovide changes
 if vim.g.neovide then
   vim.g.neovide_cursor_animation_length = 0
+  vim.cmd("colorscheme gruvbox")
 end
 
 -- package-specific config
@@ -131,3 +137,6 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 -- nvim-tree
 require("nvim-tree").setup()
 keymap('n', '<leader>n', ':NvimTreeToggle<cr>', {})
+
+-- lualine
+require('lualine').setup()
