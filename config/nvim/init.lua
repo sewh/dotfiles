@@ -3,6 +3,10 @@ local set = vim.opt
 local setlocal = vim.opt_local
 local keymap = vim.api.nvim_set_keymap
 
+-- get rid of netrw since we're using nvim-tree later on
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- packages
 require('packer').startup(function()
   use 'wbthomason/packer.nvim'
@@ -12,6 +16,25 @@ require('packer').startup(function()
   use 'hashivim/vim-terraform'
   use 'ms-jpq/coq_nvim'
   use 'ms-jpq/coq.artifacts'
+  use {
+        'nvim-treesitter/nvim-treesitter',
+        run = ':TSUpdate'
+    }
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+  })
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  use {
+    'nvim-tree/nvim-tree.lua',
+    requires = {
+      'nvim-tree/nvim-web-devicons', -- optional, for file icons
+    },
+    tag = 'nightly' -- optional, updated every week. (see issue #1193)
+  }
 end)
 
 -- text changes
@@ -45,6 +68,7 @@ set.mouse = 'a'
 -- appearance changes
 set.background = 'dark'
 set.number = true
+set.termguicolors = true
 
 -- autogroups
 -- vim.cmd('autocmd FileType lua setlocal tabstop=2 softtabstop=2 shiftwidth=2')
@@ -92,3 +116,18 @@ lspconfig.rust_analyzer.setup(coq.lsp_ensure_capabilities({
     cmd = {"rustup", "run", "stable", "rust-analyzer"} ,
 }))
 vim.cmd('COQnow -s')
+
+-- surround mode
+local surround = require 'nvim-surround'
+surround.setup()
+
+-- telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+-- nvim-tree
+require("nvim-tree").setup()
+keymap('n', '<leader>n', ':NvimTreeToggle<cr>', {})
