@@ -74,6 +74,12 @@ vim.api.nvim_create_autocmd("FileType", {
     setlocal.shiftwidth = 2
   end,
 })
+
+-- neovide changes
+if vim.g.neovide then
+  vim.g.neovide_cursor_animation_length = 0
+end
+
 -- package-specific config
 
 -- lsp mode
