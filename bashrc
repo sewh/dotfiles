@@ -3,6 +3,9 @@ alias reload="source ~/.bashrc && echo reloaded!"
 alias gdb="gdb -q"
 alias sctl="sudo systemctl"
 alias jctl="sudo journalctl"
+if [[ ! -z "${WAYLAND_DISPLAY}" ]] ; then
+    alias code="code --enable-ozone --ozone-platform=wayland"
+fi
 
 # golang stuff
 export GOROOT=/usr/local/go
