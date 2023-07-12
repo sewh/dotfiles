@@ -14,4 +14,4 @@ export PATH="${GOROOT}/bin:${PATH}"
 
 
 # custom prompt
-PS1='\[\e[43m\][ \W ]\[\e(B\e[m\]\n> '
+PS1='\[\e[30;103m\][ \W ]\[\e(B\e[m\]\n> '
