@@ -59,4 +59,7 @@
 (use-package vterm
   :ensure t)
 
+(use-package sudo-edit
+  :ensure t)
+
 (find-file (concat user-emacs-directory "init.el"))
