@@ -1,0 +1,20 @@
+(defun ensure-nano ()
+  (interactive)
+  (let ((nano-dir (concat user-emacs-directory "nano-emacs")))
+    (unless (file-directory-p nano-dir)
+      (shell-command (concat "git clone https://github.com/rougier/nano-emacs " nano-dir)))
+    (add-to-list 'load-path nano-dir)))
+
+(ensure-nano)
+
+(require 'nano-base-colors)
+(require 'nano-faces)
+(nano-faces)
+(require 'nano-theme-light)
+(require 'nano-theme)
+(nano-theme)
+(require 'nano-splash)
+(require 'nano-modeline)
+(require 'nano-layout)
+(require 'nano-colors)
+
