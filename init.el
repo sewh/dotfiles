@@ -17,10 +17,10 @@
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
 (package-initialize)
 
-(use-package dracula-theme
+(use-package tron-legacy-theme
   :ensure t
   :init
-  (load-theme 'dracula))
+  (load-theme 'tron-legacy))
 
 (use-package powerline
   :ensure t
@@ -58,6 +58,10 @@
 
 (use-package vterm
   :ensure t)
+
+(use-package dired
+  :init
+  (setq dired-dwim-target t))
 
 (use-package sudo-edit
   :ensure t)
