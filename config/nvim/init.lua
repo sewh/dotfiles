@@ -1,142 +1,103 @@
--- aliases
-local set = vim.opt
-local setlocal = vim.opt_local
-local keymap = vim.api.nvim_set_keymap
+-- set map leader
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
--- get rid of netrw since we're using nvim-tree later on
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-
--- packages
-require('packer').startup(function()
-  use 'wbthomason/packer.nvim'
-  use 'fatih/vim-go'
-  use 'editorconfig/editorconfig-vim'
-  use 'neovim/nvim-lspconfig'
-  use 'hashivim/vim-terraform'
-  use 'ms-jpq/coq_nvim'
-  use 'ms-jpq/coq.artifacts'
-  use {
-        'nvim-treesitter/nvim-treesitter',
-        run = ':TSUpdate'
-    }
-  use({
-    "kylechui/nvim-surround",
-    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+-- load lazy.lua
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
-  use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
-    requires = { {'nvim-lua/plenary.nvim'} }
-  }
-  use {
-    'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional, for file icons
-    },
-    tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  }
-  use {
-    'nvim-lualine/lualine.nvim',
-    requires = { 'kyazdani42/nvim-web-devicons', opt = true }
-  }
-  use { "ellisonleao/gruvbox.nvim" }
-end)
-
--- text changes
-set.encoding = 'utf-8'
-
--- tab options
-set.tabstop = 4
-set.softtabstop = 4
-set.shiftwidth = 4
-set.expandtab = true
-set.smarttab = true
-set.autoindent = true
-
--- search options
-set.incsearch = true
-set.ignorecase = true
-set.smartcase = true
-set.hlsearch = true
-
--- clipboard options
-set.clipboard = 'unnamedplus'
-
--- custom key bindings
-vim.g.mapleader = ","
-keymap("i", 'jj', '<Esc>', {})
-keymap("i", 'ppp', '<Esc>pa', {})
-
--- mouse changes
-set.mouse = 'a'
-
--- appearance changes
-set.background = 'dark'
-set.number = true
-set.termguicolors = true
-
--- autogroups
--- vim.cmd('autocmd FileType lua setlocal tabstop=2 softtabstop=2 shiftwidth=2')
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "lua",
-  callback = function(args)
-    setlocal.tabstop = 2
-    setlocal.softtabstop = 2
-    setlocal.shiftwidth = 2
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "sh",
-  callback = function(args)
-    setlocal.tabstop = 2
-    setlocal.softtabstop = 2
-    setlocal.shiftwidth = 2
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = "c",
-  callback = function(args)
-    setlocal.tabstop = 2
-    setlocal.softtabstop = 2
-    setlocal.shiftwidth = 2
-  end,
-})
-
--- neovide changes
-if vim.g.neovide then
-  vim.g.neovide_cursor_animation_length = 0
-  vim.cmd("colorscheme gruvbox")
 end
+vim.opt.rtp:prepend(lazypath)
 
--- package-specific config
+-- define plugins with lazy
+require("lazy").setup({
+  'tpope/vim-sleuth',
+  {
+    -- Set lualine as statusline
+    'nvim-lualine/lualine.nvim',
+    -- See `:help lualine.txt`
+    opts = {
+      options = {
+        icons_enabled = false,
+        theme = 'powerline_dark',
+        component_separators = '|',
+        section_separators = '',
+      },
+    },
+  },
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      -- Fuzzy Finder Algorithm which requires local dependencies to be built.
+      -- Only load if `make` is available. Make sure you have the system
+      -- requirements installed.
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        -- NOTE: If you are having trouble with this installation,
+        --       refer to the README for telescope-fzf-native for more instructions.
+        build = 'make',
+        cond = function()
+          return vim.fn.executable 'make' == 1
+        end,
+      },
+    },
+  },
+  { 'numToStr/Comment.nvim', opts = {} },
+})
 
--- lsp mode
-local lspconfig = require 'lspconfig'
-local coq = require "coq"
-
-lspconfig.pyright.setup({})
-lspconfig.gopls.setup({})
-lspconfig.rust_analyzer.setup(coq.lsp_ensure_capabilities({
-    cmd = {"rustup", "run", "stable", "rust-analyzer"} ,
-}))
-vim.cmd('COQnow -s')
-
--- surround mode
-local surround = require 'nvim-surround'
-surround.setup()
-
--- telescope
+-- plugin config
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
--- nvim-tree
-require("nvim-tree").setup()
-keymap('n', '<leader>n', ':NvimTreeToggle<cr>', {})
+-- basic keymap
 
--- lualine
-require('lualine').setup()
+-- Set highlight on search
+vim.o.hlsearch = false
+
+-- Make line numbers default
+vim.wo.number = true
+
+-- Enable mouse mode
+vim.o.mouse = 'a'
+
+-- Sync clipboard between OS and Neovim.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+vim.o.clipboard = 'unnamedplus'
+
+-- Enable break indent
+vim.o.breakindent = true
+
+-- Save undo history
+vim.o.undofile = true
+
+-- Case-insensitive searching UNLESS \C or capital in search
+vim.o.ignorecase = true
+vim.o.smartcase = true
+
+-- Keep signcolumn on by default
+vim.wo.signcolumn = 'yes'
+
+-- Decrease update time
+vim.o.updatetime = 250
+vim.o.timeoutlen = 300
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
+
+-- NOTE: You should make sure your terminal supports this
+vim.o.termguicolors = true
+
+vim.keymap.set('i', 'jj', '<Esc>', {})
