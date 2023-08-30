@@ -1,3 +1,5 @@
+setopt interactive_comments
+
 # Created by newuser for 5.9
 alias reload="source ~/.zshrc && echo reloaded!"
 alias gdb="gdb -q"
