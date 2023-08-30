@@ -17,8 +17,6 @@ def main():
         line = ""
         while True:
             line = input(f"[SENDING TO PANE {args.tmux_pane}] > ")
-            if line in ["quit", "q", "exit"]:
-                break
             sp.run(["tmux", "send", "-t", args.tmux_pane, line, "Enter"])
     except KeyboardInterrupt:
         pass
