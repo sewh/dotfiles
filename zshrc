@@ -7,6 +7,7 @@ alias reload="source ~/.zshrc && echo reloaded!"
 alias gdb="gdb -q"
 alias sctl="sudo systemctl"
 alias jctl="sudo journalctl"
+alias ip="ip -c"
 if [[ ! -z "${WAYLAND_DISPLAY}" ]] ; then
     alias code="code --enable-ozone --ozone-platform=wayland"
 fi
