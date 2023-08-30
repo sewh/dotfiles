@@ -12,9 +12,13 @@ export GOROOT=/usr/local/go
 export GOPATH="${HOME}/go"
 export PATH="${GOROOT}/bin:${PATH}"
 
+export PATH="${HOME}/.local/bin:${PATH}"
+
+
 # custom prompt
 NEWLINE=$'\n'
 PS1="%B%F{yellow}[%~]%f%b$NEWLINE> "
+
 
 alias tf="terraform"
 alias yay="GOROOT='' yay"
