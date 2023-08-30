@@ -25,3 +25,7 @@ alias yay="GOROOT='' yay"
 
 export EDITOR=nvim
 
+bindkey -v
+bindkey '^R' history-incremental-search-backward
+bindkey "^P" up-line-or-search
+bindkey "^N" down-line-or-search
