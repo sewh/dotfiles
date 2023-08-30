@@ -1,3 +1,5 @@
+SAVEHIST=1000  # Save most-recent 1000 lines
+HISTFILE=~/.zsh_history
 setopt interactive_comments
 
 # Created by newuser for 5.9
@@ -27,7 +29,7 @@ alias yay="GOROOT='' yay"
 
 export EDITOR=nvim
 
-bindkey -v
+bindkey -e
 bindkey '^R' history-incremental-search-backward
 bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
