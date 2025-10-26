@@ -1,3 +1,5 @@
+# YOU PROBABLY DON'T WANT TO EDIT THIS FILE AT $HOME/.zshrc! #
+
 # autocomplete
 #source /opt/homebrew/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 
@@ -10,6 +12,11 @@ alias co="git commit"
 alias commit="git commit"
 alias st="git status"
 alias push="git push"
+
+# tmux aliases
+alias tn="tmux new -s"
+alias ta="tmux attach -t"
+alias tls="tmux ls"
 
 # installing dotfiles support
 setup() {
