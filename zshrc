@@ -73,6 +73,9 @@ PS1='%F{blue}[%m] %~ %(?.%F{green}.%F{red})%#%f '
 # path
 export PATH="$HOME/.local/bin:$PATH"
 
+# editor
+export EDITOR="nvim"
+
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
