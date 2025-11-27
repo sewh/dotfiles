@@ -72,6 +72,19 @@ vim.keymap.set('n', '<leader>tl', ':tabnext<CR>', { desc = 'Next tab' })
 vim.keymap.set('n', '<leader>th', ':tabprev<CR>', { desc = 'Previous tab' })
 vim.keymap.set('n', '<leader>tc', ':tabclose<CR>', { desc = 'Close tab' })
 
+-- extra syntax highlighting
+vim.filetype.add({
+  filename = {
+    ['SConstruct'] = 'python',
+    ['SConscript'] = 'python',
+  },
+  pattern = {
+    -- Catches 'src/SConscript', 'hardware/SConscript', etc.
+    ['.*SConscript'] = 'python',
+    ['.*SConstruct'] = 'python',
+  },
+})
+
 -- lsp
 vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', { desc = 'LSP completion' })
 vim.lsp.config["rust"] = {
