@@ -85,3 +85,11 @@ vim.lsp.config["rust"] = {
 }
 vim.lsp.enable({ "rust" })
 
+vim.lsp.config["go"] = {
+  cmd = { "gopls" },
+  filetypes = { "go" },
+  root_markers = { '.editorconfig', '.git', 'go.mod' },
+  settings = { }
+}
+vim.lsp.enable({ "go" })
+
