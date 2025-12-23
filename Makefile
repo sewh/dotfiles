@@ -12,6 +12,9 @@ $(info Neovim Dir:    $(NVIMDIR))
 $(info Neovim Config: $(NVIMCONF))
 $(info *************************************)
 
+# ensure required directories are created
+$(shell mkdir -p $(NVIMDIR))
+
 .PHONY: all
 all: zsh tmux nvim
 
