@@ -93,3 +93,14 @@ vim.lsp.config["go"] = {
 }
 vim.lsp.enable({ "go" })
 
+-- go specific formatting
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "go",
+  callback = function()
+    vim.opt_local.expandtab = false  -- Use actual tabs, not spaces
+    vim.opt_local.tabstop = 4        -- Display tabs as 4 spaces wide
+    vim.opt_local.shiftwidth = 4     -- Indent by 4 spaces when using >> or 
+    vim.opt_local.softtabstop = 4    -- Backspace deletes 4 spaces worth
+    vim.opt_local.list = false       -- Hide invisible characters for Go files
+  end,
+})
