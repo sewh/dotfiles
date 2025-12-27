@@ -16,7 +16,7 @@ alias push="git push"
 # tmux aliases
 alias tn="tmux new -s"
 alias ta="tmux attach -t"
-alias tacd="tmux attach -c $(pwd) -t"
+alias tacd='tmux attach -c $(pwd) -t'
 alias tls="tmux ls"
 
 # installing dotfiles support
