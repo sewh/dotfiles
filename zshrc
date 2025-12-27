@@ -12,6 +12,7 @@ alias co="git commit"
 alias commit="git commit"
 alias st="git status"
 alias push="git push"
+alias lg="lazygit"
 
 # tmux aliases
 alias tn="tmux new -s"
