@@ -69,7 +69,6 @@ vim.filetype.add({
 })
 
 -- lsp
-vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', { desc = 'LSP completion' })
 vim.lsp.config["rust"] = {
   -- Command and arguments to start the server.
   cmd = { 'rust-analyzer' },
@@ -92,6 +91,33 @@ vim.lsp.config["go"] = {
   settings = { }
 }
 vim.lsp.enable({ "go" })
+
+-- lsp keybindings
+
+-- Completion
+vim.keymap.set('i', '<C-Space>', '<C-x><C-o>', { desc = 'LSP completion' })
+
+-- Core navigation
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = 'Go to definition' })
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { desc = 'Go to declaration' })
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = 'Go to implementation' })
+vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, { desc = 'Go to type definition' })
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = 'Find references' })
+
+-- Documentation & help
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = 'Hover documentation' })
+vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature help' })
+
+-- Code actions & refactoring
+vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename symbol' })
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code actions' })
+vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = 'Format buffer' })
+
+-- Diagnostics
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show line diagnostics' })
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Next diagnostic' })
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous diagnostic' })
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostics to location list' })
 
 -- go specific formatting
 vim.api.nvim_create_autocmd("FileType", {
