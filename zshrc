@@ -19,6 +19,11 @@ alias tn="tmux new -s"
 alias ta="tmux attach -t"
 alias tacd='tmux attach -c $(pwd) -t'
 alias tls="tmux ls"
+alias tm="tmuxinator"
+function dev() {
+  local name="${1}"
+  tmuxinator start dev "${name}" $(pwd)
+}
 
 # installing dotfiles support
 setup() {
@@ -69,6 +74,35 @@ setup() {
   fi
 }
 
+# useful functions
+
+# create and enter a directory
+mkcd() {
+  mkdir -p "$1" && cd "$1"
+}
+
+# recursive find files
+ff() {
+  find . -type f -iname "*$1*" 2>/dev/null
+}
+
+# recursive find directories
+fd() {
+  find . -type d -iname "*$1*" 2>/dev/null
+}
+
+# serve a directory
+serve() {
+  local port=${1:-8000}
+  echo "Serving on http://localhost:$port"
+  python3 -m http.server "$port"
+}
+
+# a better tree command
+tre() {
+  tree -aC -I '.git|node_modules|vendor|__pycache__' --dirsfirst "$@" | less -FRNX
+}
+
 # prompt
 PS1='%F{blue}[%m] %~ %(?.%F{green}.%F{red})%#%f '
 
@@ -81,7 +115,8 @@ export EDITOR="nvim"
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
-setopt extendedglob
+setopt interactivecomments
+unsetopt extended_glob
 unsetopt beep
 bindkey -e
 
