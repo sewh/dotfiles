@@ -1,6 +1,12 @@
 -- leader!
 vim.g.mapleader = " "
 
+-- plugins
+vim.pack.add({
+  -- add plugins here, e.g.:
+  -- { src = "https://github.com/author/plugin.git" },
+})
+
 -- basic sets
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
