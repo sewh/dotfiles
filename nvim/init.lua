@@ -4,6 +4,8 @@ vim.g.mapleader = " "
 -- plugins
 vim.pack.add({
   { src = "https://github.com/shatur/neovim-ayu.git" },
+  { src = "https://github.com/nvim-lua/plenary.nvim.git" },
+  { src = "https://github.com/nvim-telescope/telescope.nvim.git" },
 })
 
 -- basic sets
@@ -117,13 +119,21 @@ vim.keymap.set('i', '<C-k>', vim.lsp.buf.signature_help, { desc = 'Signature hel
 -- Code actions & refactoring
 vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = 'Rename symbol' })
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code actions' })
-vim.keymap.set('n', '<leader>f', vim.lsp.buf.format, { desc = 'Format buffer' })
+vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format, { desc = 'Format buffer' })
 
 -- Diagnostics
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show line diagnostics' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Next diagnostic' })
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Previous diagnostic' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Diagnostics to location list' })
+
+-- telescope
+require('telescope').setup({})
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help tags' })
 
 -- go specific formatting
 vim.api.nvim_create_autocmd("FileType", {
