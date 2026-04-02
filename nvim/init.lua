@@ -3,8 +3,7 @@ vim.g.mapleader = " "
 
 -- plugins
 vim.pack.add({
-  -- add plugins here, e.g.:
-  -- { src = "https://github.com/author/plugin.git" },
+  { src = "https://github.com/shatur/neovim-ayu.git" },
 })
 
 -- basic sets
@@ -35,7 +34,8 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
 vim.opt.termguicolors = true
-vim.cmd([[colorscheme wildcharm]])
+require('ayu').setup({})
+vim.cmd([[colorscheme ayu-dark]])
 vim.opt.showmode = false
 
 -- No automatic comment insertion
