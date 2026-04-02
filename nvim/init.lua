@@ -56,6 +56,7 @@ require('lualine').setup({
     theme = 'ayu_dark',
   },
   sections = {
+    lualine_c = { 'filename', 'lsp_status' },
     lualine_y = { 'searchcount', 'progress' },
   },
 })
