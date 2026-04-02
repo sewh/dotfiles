@@ -6,6 +6,7 @@ vim.pack.add({
   { src = "https://github.com/shatur/neovim-ayu.git" },
   { src = "https://github.com/nvim-lua/plenary.nvim.git" },
   { src = "https://github.com/nvim-telescope/telescope.nvim.git" },
+  { src = "https://github.com/nvim-lualine/lualine.nvim.git" },
 })
 
 -- basic sets
@@ -39,6 +40,14 @@ vim.opt.termguicolors = true
 require('ayu').setup({})
 vim.cmd([[colorscheme ayu-dark]])
 vim.opt.showmode = false
+require('lualine').setup({
+  options = {
+    theme = 'ayu_dark',
+  },
+  sections = {
+    lualine_y = { 'searchcount', 'progress' },
+  },
+})
 
 -- No automatic comment insertion
 vim.cmd([[autocmd FileType * set formatoptions-=ro]])
